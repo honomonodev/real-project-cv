@@ -9,23 +9,33 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: SizedBox(
-          width: 250.0,
-          child: DefaultTextStyle(
-            style: GoogleFonts.lato(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-            ),
-            child: AnimatedTextKit(
-              animatedTexts: [
-                WavyAnimatedText('e-vesping',
-                    speed: const Duration(milliseconds: 100)),
-              ],
-              isRepeatingAnimation: true,
-              repeatForever: false,
-              onFinished: _controller.navigateToHome,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                'assets/images/bg_vesping.png'), // Replace with the path of your image
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: SizedBox(
+            width: 250.0,
+            child: DefaultTextStyle(
+              style: GoogleFonts.lato(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+                color: Colors
+                    .black, // You might want to change the color of the text to make it visible on the image
+              ),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  WavyAnimatedText('e-vesping',
+                      speed: const Duration(milliseconds: 100)),
+                ],
+                isRepeatingAnimation: true,
+                repeatForever: false,
+                onFinished: _controller.navigateToHome,
+              ),
             ),
           ),
         ),
