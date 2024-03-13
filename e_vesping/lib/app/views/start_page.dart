@@ -17,24 +17,45 @@ class StartPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: SizedBox(
-            width: 250.0,
-            child: DefaultTextStyle(
-              style: GoogleFonts.lato(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-                color: Colors
-                    .black, // You might want to change the color of the text to make it visible on the image
-              ),
-              child: AnimatedTextKit(
-                animatedTexts: [
-                  WavyAnimatedText('e-vesping',
-                      speed: const Duration(milliseconds: 100)),
-                ],
-                isRepeatingAnimation: true,
-                repeatForever: false,
-                onFinished: _controller.navigateToHome,
+        child: Transform.translate(
+          offset: const Offset(0.0, -50.0),
+          child: Center(
+            child: SizedBox(
+              width: 250.0,
+              child: DefaultTextStyle(
+                style: GoogleFonts.lato(
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText('e-vesping',
+                        textStyle: GoogleFonts.lato(
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54),
+                        curve: Curves.easeIn,
+                        speed: const Duration(milliseconds: 150),
+                        textAlign: TextAlign.start),
+                    ColorizeAnimatedText('e-vesping',
+                        colors: [
+                          Colors.green,
+                          Colors.blue,
+                          Colors.yellow,
+                          Colors.red,
+                        ],
+                        textDirection: TextDirection.ltr,
+                        textStyle: GoogleFonts.lato(
+                            fontSize: 40.0, fontWeight: FontWeight.bold),
+                        speed: const Duration(
+                          milliseconds: 400,
+                        ),
+                        textAlign: TextAlign.start),
+                  ],
+                  isRepeatingAnimation: false,
+                  repeatForever: false,
+                  onFinished: _controller.navigateToHome,
+                ),
               ),
             ),
           ),
